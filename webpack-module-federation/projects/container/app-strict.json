@@ -1,0 +1,13 @@
+{
+  "login": "v1.0.0",
+  "welcome": "v1.0.0",
+  "order": "v1.0.0",
+  "customization": "v1.0.1",
+  "interface-platform": "v1.0.0",
+  "sys": "v1.0.1",
+  "foundation": "v1.0.0",
+  "mdm": "v1.0.0",
+  "sop": "v1.0.0",
+  "scp": "v1.0.0",
+  "dps": "v1.0.0"
+}

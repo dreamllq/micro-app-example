@@ -1,0 +1,42 @@
+{
+  "name": "@alsi/micro-app-automation-webpack-plugin",
+  "version": "1.2.3",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc --outDir lib src/index",
+    "postversion": "git push && git push --tags && npm run build && npm publish --registry=https://repo.dev.alsi.cn/repository/aps-npm-snapshot/",
+    "test": "node tests/index.js"
+  },
+  "exports": {
+    ".": {
+      "require": "./lib/index.js"
+    },
+    "./main": {
+      "import": "./main.js"
+    },
+    "./locales": {
+      "import": "./locales.js"
+    }
+  },
+  "files": [
+    "./lib",
+    "./routes.js",
+    "./locales.js",
+    "./public-path.js",
+    "./main.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "node tests/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.5.1",
+    "change-case": "^4.1.2",
+    "typescript": "^5.1.6",
+    "lodash": "^4.17.21"
+  },
+  "dependencies": {}
+}

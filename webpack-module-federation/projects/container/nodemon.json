@@ -1,0 +1,11 @@
+{
+  "watch": [
+    "./manifest.json",
+    "./build/module-federation-plugin-options.js",
+    "./build/webpack.config.base.cjs",
+    "./build/webpack.config.development.cjs",
+    "./.env.development",
+    "./package.json"
+  ],
+  "exec": "npm run start"
+}

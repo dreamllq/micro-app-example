@@ -1,0 +1,173 @@
+{
+  "apps": [
+    {
+      "name": "foundation",
+      "version": "v1.2.0",
+      "port": 7101
+    },
+    {
+      "name": "login",
+      "version": "v1.1.0",
+      "port": 7102
+    },
+    {
+      "name": "welcome",
+      "version": "v1.1.0",
+      "port": 7103
+    },
+    {
+      "name": "sys",
+      "version": "v1.1.0",
+      "port": 7104
+    },
+    {
+      "name": "mdm",
+      "version": "v1.1.0",
+      "port": 7105
+    },
+    {
+      "name": "order",
+      "version": "v1.1.0",
+      "port": 7106
+    },
+    {
+      "name": "scp",
+      "version": "v1.1.0",
+      "port": 7107
+    },
+    {
+      "name": "interface-platform",
+      "version": "v1.2.0",
+      "port": 7108
+    },
+    {
+      "name": "sop",
+      "version": "v1.1.0",
+      "port": 7109
+    },
+    {
+      "name": "dps",
+      "version": "v1.3.0",
+      "port": 7110
+    },
+    {
+      "name": "customization",
+      "version": "v1.1.0",
+      "port": 7201
+    }
+  ],
+  "shared": [
+    {
+      "axios": {
+        "singleton": true,
+        "requiredVersion": "^0.27.2",
+        "eager": true
+      },
+      "vue": {
+        "singleton": true,
+        "requiredVersion": "^3.0.0",
+        "eager": true
+      },
+      "@alsi/micro-framework-sdk": {
+        "singleton": true
+      },
+      "@alsi/vue-permission": {
+        "singleton": true
+      },
+      "vue-router": {
+        "singleton": true,
+        "eager": true
+      },
+      "vue-i18n": {
+        "singleton": true,
+        "eager": true
+      },
+      "element-plus": {
+        "singleton": true,
+        "eager": true
+      },
+      "lodash": {
+        "singleton": true
+      },
+      "moment": {
+        "singleton": true
+      },
+      "moment-timezone": {
+        "singleton": true
+      },
+      "uuid": {
+        "singleton": true
+      },
+      "@vueuse/core": {
+        "singleton": true
+      },
+      "rxjs": {
+        "singleton": true
+      },
+      "@alsi/vue-router-tab": {
+        "singleton": true
+      },
+      "@alsi/aps-api": {
+        "singleton": true
+      },
+      "@alsi/aps-api-client": {
+        "singleton": true
+      },
+      "@alsi/vue-auto-height-wrapper": {
+        "singleton": true
+      },
+      "@alsi/vue-date-picker": {
+        "singleton": true
+      },
+      "@alsi/vue-form-grid": {
+        "singleton": true
+      },
+      "@alsi/vue-form-layout-wrapper": {
+        "singleton": true
+      },
+      "@alsi/vue-layout": {
+        "singleton": true
+      },
+      "@alsi/vue-minio-upload": {
+        "singleton": true
+      },
+      "@alsi/vue-status-badge": {
+        "singleton": true
+      },
+      "@alsi/vue-status-select": {
+        "singleton": true
+      },
+      "@alsi/vue-text-tip": {
+        "singleton": true
+      },
+      "@alsi/vue-time-picker": {
+        "singleton": true
+      },
+      "@alsi/vue-virtual-tree": {
+        "singleton": true
+      },
+      "@alsi/http-client": {
+        "singleton": true
+      },
+      "validator": {
+        "singleton": true
+      },
+      "simple-async-logic": {
+        "singleton": true
+      },
+      "@antv/g6": {
+        "singleton": true
+      },
+      "@alsi/aps-ws-client": {
+        "singleton": true
+      },
+      "@alsi/ws-client": {
+        "singleton": true
+      },
+      "@alsi/vue-icon-button": {
+        "singleton": true
+      }
+    }
+  ],
+  "exposes": {}
+}
