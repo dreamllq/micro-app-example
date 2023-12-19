@@ -71,8 +71,11 @@ module.exports = () => ({
           'postcss-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        type:'asset/inline'
       }
-    
     ]
   },
   optimization: { splitChunks: { chunks: 'async' } },
