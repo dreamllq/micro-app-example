@@ -1,0 +1,104 @@
+
+pipeline {
+  agent {
+    kubernetes {
+        cloud "kubernetes"  //选择名字是kubernetes1的cloud
+        label "jenkins-web-microapp"   //这定义了在kubernetes上创建的pod名字前缀是jenkins-slave
+        yamlFile 'jenkins/pod.yaml'  //pod.yaml文件位置
+    }
+  } 
+  environment {
+    def APP_NAME = sh(script:"echo '$giteeSourceRepoName'|sed 's/scpo-sys-micro-//'", returnStdout: true).trim()
+    def APP_VERSION = sh(script:"echo '$giteeRef'|sed 's/refs\\/tags\\///'", returnStdout: true).trim()
+  }
+  stages{
+    stage('set buildDescription') {
+      steps {
+        script {
+          wrap([$class: 'BuildUser']) {
+            buildDescription "应用：${APP_NAME}，本次构建版本：${APP_VERSION}"
+          }
+        }
+      }
+    }
+    stage('env info'){
+      steps{
+        container('jenkins-worker') {
+          script {
+              sh "echo tag: $giteeRef"
+              sh "echo tag: $ref"
+              sh "echo giteeSourceRepoName: $giteeSourceRepoName"
+              sh "echo giteeSourceRepoURL: $giteeSourceRepoURL"  
+              sh "echo giteeSourceRepoHttpUrl: $giteeSourceRepoHttpUrl"  
+              sh "echo APP_NAME: $APP_NAME" 
+              sh "echo APP_VERSION: $APP_VERSION" 
+              sh "node -v"
+              sh "npm -v"  
+          }
+        }
+      }
+    }
+    stage('git clone'){
+      steps{
+        checkout(
+          [
+            $class           : 'GitSCM',
+            branches         : [[name: '*/develop']],
+            extensions       : [],
+            userRemoteConfigs: [[credentialsId: 'chimw', url: "$giteeSourceRepoHttpUrl"]]
+          ]
+        )
+        container('jenkins-worker') {
+          script {
+            sh "pwd"
+            sh "ls"
+            echo "WORKSPACE: $WORKSPACE"
+            sh "git config --global --add safe.directory /home/jenkins/agent/workspace/frontend/micro-app-pipline"
+            sh "git checkout $giteeRef"
+          }
+        }
+      }
+    }
+    stage('npm install'){
+      steps{
+        container('jenkins-worker') {
+          script {
+              // sh "npm config set fetch-retries 100"
+              // sh "npm config set fetch-retry-factor 1"
+              // sh "npm config set fetch-retry-mintimeout 10000"
+              // sh "npm config set fetch-retry-maxtimeout 60000"
+              // sh "npm config set timeout 60000"
+              sh "npm config set fund false"
+              sh "npm config set audit false"
+              // sh "npm config set loglevel silly"
+              // sh "npm config list"
+              sh "sed -i 's/https\\:\\/\\/repo\\.dev\\.alsi\\.cn/http\\:\\/\\/nexus3\\-clusterip\\.inf\\.svc\\.cluster\\.local\\:8081/g' package-lock.json"
+              // sh "cat package-lock.json"
+              sh "sed -i 's/https\\:\\/\\/repo\\.dev\\.alsi\\.cn/http\\:\\/\\/nexus3\\-clusterip\\.inf\\.svc\\.cluster\\.local\\:8081/g' .npmrc"
+              // sh "cat .npmrc"
+              sh "npm cache clear -f"
+              // sh "sleep 500"
+              // sh "npm install -g npm --registry=http://nexus3-clusterip.inf.svc.cluster.local:8081/repository/aps-npm-group/"
+              sh "npm install"
+          }
+        }
+      }
+    }
+    stage('npm build') {
+      steps{
+        container('jenkins-worker') {
+          script {
+              sh "npm run build"          
+          }
+        }
+      }
+    }
+    stage('archived') {
+      steps {
+        container('jenkins-worker') {
+          zip archive: true, dir: 'dist', exclude: '', glob: '', overwrite: true, zipFile: 'dist.zip'
+        }
+      }
+    }
+  }
+}
