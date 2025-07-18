@@ -1,0 +1,1 @@
+module.exports = { types: { npmGroupName: '@alsi-microapp-types' } };

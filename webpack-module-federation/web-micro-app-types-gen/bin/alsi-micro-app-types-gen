@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+const path = require('path');
+const fs = require('fs');
+const { Command } = require('commander');
+const codeGen = require('../lib/index.js');
+
+const pkg = JSON.parse(fs.readFileSync(path.join(__dirname,'..', 'package.json'), 'utf8'))
+const program = new Command();
+
+program
+  .name('alsi')
+  .description('alsi微应用ts类型生成')
+  .version(pkg.version)
+  .option('-n, --npmGroupName <string>', '包组名称')
+  .action((options)=>{
+    codeGen({npmGroupName: options.npmGroupName});
+  })
+
+  program.parse(process.argv);

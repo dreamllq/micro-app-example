@@ -1,0 +1,28 @@
+{
+  "name": "@alsi/web-micro-app-types-gen",
+  "version": "1.2.3",
+  "main": "lib/index.js",
+  "scripts": {
+    "postversion": "git push && git push --tags",
+    "publish:next": "npm publish --registry=https://repo.dev.alsi.cn/repository/aps-npm-snapshot/ --tag=next",
+    "publish:beta": "npm publish --registry=https://repo.dev.alsi.cn/repository/aps-npm-snapshot/ --tag=beta",
+    "publish:latest": "npm publish --registry=https://repo.dev.alsi.cn/repository/aps-npm-snapshot/"
+  },
+  "files": [
+    "/lib",
+    "/exposes-types/.npmrc",
+    "/exposes-types/index.d.ts"
+  ],
+  "bin": {
+    "alsi-micro-app-types-gen": "./bin/alsi-micro-app-types-gen",
+    "alsi-micro-app-types-publish": "./bin/alsi-micro-app-types-publish"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vue/babel-preset-app": "^5.0.8",
+    "@vue/compiler-sfc": "^3.4.21",
+    "resolve-tspaths": "^0.8.18",
+    "vue-tsc": "^2.0.6"
+  }
+}

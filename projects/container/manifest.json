@@ -1,0 +1,76 @@
+{
+  "type": "container",
+  "dependencies": {
+    "hp-config": {
+      "type": "@alsi-microapp-types/hp-config"
+    },
+    "mdf-config": {
+      "type": "@alsi-microapp-types/mdf-config"
+    },
+    "wms-config": {
+      "type": "@alsi-microapp-types/wms-config"
+    },
+    "biz-components": {
+      "type": "@alsi-microapp-types/biz-components"
+    },
+    "foundation": {
+      "type": "@alsi-microapp-types/foundation"
+    },
+    "login": {
+      "type": "@alsi-microapp-types/login"
+    },
+    "welcome": {
+      "type": "@alsi-microapp-types/welcome"
+    },
+    "sys": {
+      "type": "@alsi-microapp-types/sys"
+    },
+    "mdm": {
+      "type": "@alsi-microapp-types/mdm"
+    },
+    "order": {
+      "type": "@alsi-microapp-types/order"
+    },
+    "scp": {
+      "type": "@alsi-microapp-types/scp"
+    },
+    "interface-platform": {
+      "type": "@alsi-microapp-types/interface-platform"
+    },
+    "sop": {
+      "type": "@alsi-microapp-types/sop"
+    },
+    "dps": {
+      "type": "@alsi-microapp-types/dps"
+    },
+    "wms": {
+      "type": "@alsi-microapp-types/wms"
+    },
+    "simple-dps": {
+      "type": "@alsi-microapp-types/simple-dps"
+    },
+    "simple-mdm": {
+      "type": "@alsi-microapp-types/simple-mdm"
+    },
+    "customization": {
+      "type": "@alsi-microapp-types/customization"
+    },
+    "alsi-ningbo-report": {
+      "type": "@alsi-microapp-types/alsi-ningbo-report"
+    },
+    "simple-sop": {
+      "type": "@alsi-microapp-types/simple-sop"
+    },
+    "simple-order": {
+      "type": "@alsi-microapp-types/simple-order"
+    },
+    "simple-scp": {
+      "type": "@alsi-microapp-types/simple-scp"
+    },
+    "mps": {
+      "type": "@alsi-microapp-types/mps"
+    }
+  },
+  "shared": {},
+  "exposes": {}
+}

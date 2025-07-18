@@ -1,0 +1,101 @@
+{
+  "type": "project",
+  "container": {
+    "name": "aps",
+    "version": "v1.4.0"
+  },
+  "apps": [
+    {
+      "name": "hp-config",
+      "version": "v1.3.1"
+    },
+    {
+      "name": "mdf-config",
+      "version": "v1.2.0"
+    },
+    {
+      "name": "wms-config",
+      "version": "v1.0.0"
+    },
+    {
+      "name": "biz-components",
+      "version": "v1.7.7"
+    },
+    {
+      "name": "foundation",
+      "version": "v1.11.0"
+    },
+    {
+      "name": "login",
+      "version": "v1.3.0"
+    },
+    {
+      "name": "welcome",
+      "version": "v1.1.1"
+    },
+    {
+      "name": "sys",
+      "version": "v1.10.0"
+    },
+    {
+      "name": "mdm",
+      "version": "v1.10.0"
+    },
+    {
+      "name": "order",
+      "version": "v1.6.0"
+    },
+    {
+      "name": "scp",
+      "version": "v1.8.0"
+    },
+    {
+      "name": "interface-platform",
+      "version": "v1.8.0"
+    },
+    {
+      "name": "sop",
+      "version": "v1.8.0"
+    },
+    {
+      "name": "dps",
+      "version": "v1.15.0"
+    },
+    {
+      "name": "simple-dps",
+      "version": "v1.4.0"
+    },
+    {
+      "name": "simple-mdm",
+      "version": "v1.4.0"
+    },
+    {
+      "name": "customization",
+      "version": "v1.9.0"
+    },
+    {
+      "name": "alsi-ningbo-report",
+      "version": "v1.0.1"
+    },
+    {
+      "name": "wms",
+      "version": "v1.2.0"
+    },
+    {
+      "name": "simple-sop",
+      "version": "v1.1.0"
+    },
+    {
+      "name": "simple-scp",
+      "version": "v1.1.0"
+    },
+    {
+      "name": "simple-order",
+      "version": "v1.1.0"
+    },
+    {
+      "name": "mps",
+      "version": "v1.0.0"
+    }
+  ]
+}

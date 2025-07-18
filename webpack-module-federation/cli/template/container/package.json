@@ -1,0 +1,39 @@
+{
+  "name": "container",
+  "version": "1.0.0-0",
+  "private": true,
+  "scripts": {
+    "dev": "alsi serve",
+    "build": "alsi build",
+    "preview": "alsi preview",
+    "prepare": "husky install",
+    "lint": "eslint ./src/**/*.vue ./src/**/*.js --fix",
+    "preversion": "alsi-npm-preversion",
+    "postversion": "git push && git push --tags"
+  },
+  "dependencies": {
+    "@alsi/micro-framework": "^2.2.3",
+    "@alsi/micro-framework-sdk": "^1.6.1",
+    "@alsi/vue-permission": "^2.1.2",
+    "@vueuse/core": "^9.13.0",
+    "element-plus": "^2.3.4",
+    "moment": "^2.24.0",
+    "vue": "^3.3.4",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.2.2"
+  },
+  "devDependencies": {
+    "@alsi/web-alsi-cli": "^1.3.2",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.5.0",
+    "stylelint": "^15.2.0",
+    "stylelint-config-recommended-vue": "^1.4.0",
+    "stylelint-config-standard": "^30.0.1",
+    "typescript": "^4.9.3",
+    "vue-tsc": "^1.0.24"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "container",
+  "dependencies": {
+    "app": "*"
+  },
+  "shared": {},
+  "exposes": {}
+}

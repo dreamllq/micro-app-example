@@ -1,0 +1,1 @@
+export {default as AA} from '@/components/a.vue'

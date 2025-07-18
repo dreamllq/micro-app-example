@@ -1,0 +1,8 @@
+{
+  "type": "app",
+  "dependencies": {},
+  "shared": {},
+  "exposes": {
+    "./permission-keys": "./src/permission-keys/index.ts"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@alsi/trans",
+  "version": "1.1.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./bin/alsi-trans -cn locales/zh-cn/index.ts -en locales/en/index.ts -ja locales/ja/index.ts -o locales -f",
+    "build": "tsc --outDir lib src/index",
+    "postversion": "git push && git push --tags && npm run build && npm publish --registry=https://repo.dev.alsi.cn/repository/aps-npm-snapshot/"
+  },
+  "bin": {
+    "alsi-trans": "./bin/alsi-trans"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/alsi_dalian/web-trans.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "commander": "^11.0.0",
+    "md5": "^2.3.0",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.1",
+    "eslint": "^8.49.0",
+    "lodash": "^4.17.21",
+    "typescript": "^5.1.6"
+  }
+}

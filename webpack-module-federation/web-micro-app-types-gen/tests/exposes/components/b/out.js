@@ -1,0 +1,1 @@
+export {default as BB} from '@/components/a.vue'

@@ -1,0 +1,13 @@
+{
+  "type": "project",
+  "container": {
+    "name": "container",
+    "version": "v1.0.0-0"
+  },
+  "apps": [
+    {
+      "name": "app",
+      "version": "v1.0.0-0"
+    }
+  ]
+}

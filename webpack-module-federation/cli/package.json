@@ -1,0 +1,54 @@
+{
+  "name": "@alsi/web-alsi-cli",
+  "version": "1.8.20",
+  "description": "alsi 微前端框架脚手架",
+  "main": "index.js",
+  "bin": {
+    "alsi": "./bin/alsi",
+    "alsi-npm-preversion": "./bin/alsi-npm-preversion"
+  },
+  "files": [
+    "./bin",
+    "./utils",
+    "./lib",
+    "./constants",
+    "./configs",
+    "./template"
+  ],
+  "scripts": {
+    "postversion": "git push && git push --tags",
+    "publish:next": "npm publish --registry=https://repo.dev.alsi.cn/repository/aps-npm-snapshot/ --tag=next",
+    "publish:beta": "npm publish --registry=https://repo.dev.alsi.cn/repository/aps-npm-snapshot/ --tag=beta",
+    "publish:latest": "npm publish --registry=https://repo.dev.alsi.cn/repository/aps-npm-snapshot/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@alsi/micro-app-webpack-config": "../micro-app-webpack-config",
+    "@alsi/trans": "../trans",
+    "@alsi/web-micro-app-types-gen": "../web-micro-app-types-gen",
+    "@types/jest": "^29.5.5",
+    "bonjour": "^3.5.0",
+    "cli-table3": "^0.6.3",
+    "commander": "^11.1.0",
+    "compression": "^1.7.4",
+    "cosmiconfig": "^9.0.0",
+    "cp": "^0.2.0",
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "http-server": "^14.1.1",
+    "jest": "^29.7.0",
+    "lodash": "^4.17.21",
+    "mime": "3.0.0",
+    "minimist": "^1.2.8",
+    "portfinder": "^1.0.32",
+    "webpack": "^5.88.2",
+    "webpack-bundle-analyzer": "^4.9.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "ts-jest": "^29.1.1",
+    "url-loader": "^4.1.1",
+    "vue-auto-routing": "^1.0.1",
+    "vue-loader": "^17.2.2"
+  }
+}

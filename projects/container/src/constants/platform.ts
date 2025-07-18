@@ -1,0 +1,4 @@
+export enum PLATFORM {
+  COMPLETE_EDITION='COMPLETE_EDITION', // 慧湃计划平台
+  SHORT_EDITION='SHORT_EDITION' // 脉达峰平台
+}

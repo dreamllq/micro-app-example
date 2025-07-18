@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "allowJs": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "/Users/llq/Documents/project/web-micro-app-types-gen/tests/exposes-types/components/d",
+    "baseUrl": "/Users/llq/Documents/project/web-micro-app-types-gen",
+    "paths": {
+      "@/*": [
+        "./tests/exposes/*",
+        "./tests/exposes/*.vue",
+        "./tests/exposes/*/index.vue"
+      ]
+    }
+  },
+  "include": [
+    "/Users/llq/Documents/project/web-micro-app-types-gen/tests/exposes/components/index.js"
+  ]
+}

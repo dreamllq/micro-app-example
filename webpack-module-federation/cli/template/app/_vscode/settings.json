@@ -1,0 +1,53 @@
+{
+  "eslint.format.enable": true,
+  "[vue]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "files.eol": "\n",
+  "eslint.run": "onType",
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  },
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true,
+  "cSpell.words": [
+    "daterange",
+    "monthrange",
+    "yearrange"
+  ],
+  "eslint.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "vue",
+    "scss"
+  ],
+  "volar.icon.splitEditors": false,
+  "vue.inlayHints.optionsWrapper": false,
+  "i18n-ally.localesPaths": [
+    "src/locales",
+    "../scpo-sys-web/src/locales"
+  ],
+  // "i18n-ally.namespace": true,
+  // "i18n-ally.pathMatcher": "{locale}/{namespaces}.{ext}",
+  "i18n-ally.enabledParsers": [
+    "ts"
+  ],
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.displayLanguage": "zh-cn",
+  "i18n-ally.enabledFrameworks": [
+    "vue"
+  ],
+  "i18n-ally.keystyle": "nested"
+}

@@ -1,0 +1,119 @@
+#!/usr/bin/env node
+
+const path = require('path');
+const fs = require('fs');
+const { Command } = require('commander');
+
+const pkg = JSON.parse(fs.readFileSync(path.join(__dirname,'..', 'package.json'), 'utf8'))
+const program = new Command();
+
+program
+  .name('alsi')
+  .description('alsi 微前端框架cli')
+  .version(pkg.version);
+
+program.command('create')
+  .description('创建项目')
+  .argument('<string>', '项目目录')
+  .option('-t, --type <container | app | project>', '项目类型，容器、应用、项目')
+  .option('-n, --name <string>', '项目名称')
+  .action((d, options)=>{
+    const dir = path.join(process.cwd(), d);
+    if(options.type === 'project'){
+    } else if (options.type === 'container'){
+    } else if (options.type === 'app'){
+      require('../lib/app/create')({dir, type: options.type})
+    }
+  })
+
+
+program.command('serve')
+  .description('开发服务')
+  .option('-p, --port <number>', '服务端口')
+  .option('-t, --type <container | app | project>', '项目类型，容器、应用、项目')
+  .action((options) => {
+    const repoManifest = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'manifest.json'), 'utf8'))
+    const type = options.type || repoManifest.type;
+
+    if(type === 'project'){
+      require('../lib/project/serve/index')(options)
+    } else if (type === 'container'){
+      require('../lib/container/serve')(options)
+    } else if (type === 'app'){
+      require('../lib/app/serve')(options)
+    }
+  });
+
+program.command('build')
+  .description('构建')
+  .option('-t, --type <container | app | project>', '项目类型，容器、应用、项目')
+  .action((options) => {
+    const repoManifest = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'manifest.json'), 'utf8'))
+    const type = options.type || repoManifest.type;
+
+    if(type === 'project'){
+      require('../lib/project/build/index')(options)
+    } else if (type === 'container'){
+      require('../lib/container/build')(options)
+    }  else if(type === 'app'){
+      require('../lib/app/build')(options)
+    }
+  });
+
+program.command('preview')
+  .description('预览')
+  .option('-p, --port <number>', '服务端口')
+  .option('-t, --type <container | app>', '项目类型，容器、应用')
+  .option('-n, --name <string>', '应用/容器名称')
+  .action((options)=>{
+    const repoManifest = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'manifest.json'), 'utf8'))
+    const repoPkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'))
+    const type = options.type || repoManifest.type;
+    const name = options.name || repoPkg.name;
+    require('../lib/common/preview')({
+      type,
+      name,
+      port:options.port
+    })
+  });
+
+program.command('test')
+.description('测试')
+.option('-w, --watch', '监听变化')
+.action((options)=>{
+  require('../lib/common/test')(options)
+});
+
+program.command('trans')
+  .description('翻译')
+  .action((options)=>{
+    require('../lib/common/trans')(options)
+  });
+
+program.command('download')
+  .description('下载包')
+  .option('-dev, --development', '是否开发环境', false)
+  .action((options)=>{
+    if(options.development){
+      require('../lib/project/download/development')(options)
+    }else {
+      require('../lib/project/download/production')(options)
+    }
+  });
+
+program.command('types-gen')
+  .description('生成项目exposes定义的模块类型')
+  .option('-t, --type <app | container>', '项目类型，容器、应用')
+  .option('-ap, --auto-publish', '是否自动发包', false)
+  .action((options)=>{
+    require('../lib/common/types-gen')(options)
+  })
+
+program.command('install-types')
+  .description('根据manifest.json定义，安装为应用类型定义包')
+  .action(()=>{
+    const repoManifest = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'manifest.json'), 'utf8'));
+    require('../lib/common/install-types')({dependencies: repoManifest.dependencies})
+  })
+
+program.parse();

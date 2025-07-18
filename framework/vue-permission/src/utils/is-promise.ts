@@ -1,0 +1,1 @@
+export default (obj) => obj && Object.prototype.toString.call(obj) === '[object Promise]';

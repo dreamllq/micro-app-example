@@ -1,0 +1,32 @@
+const NODE_ENV = window.NODE_ENV || process.env.NODE_ENV;
+const RUNTIME_ENV = window.__APS_ENV__.RUNTIME_ENV;
+const API_HOST = window.__APS_ENV__.API_HOST;
+const OAUTH_HOST = window.__APS_ENV__.OAUTH_HOST;
+const WSS_HOST = window.__APS_ENV__.WSS_HOST;
+const CLIENT_ID = window.__APS_ENV__.CLIENT_ID;
+const CLIENT_SECRET = window.__APS_ENV__.CLIENT_SECRET;
+const MINIO_END_POINT = window.__APS_ENV__.MINIO_END_POINT;
+const MINIO_BUCKET = window.__APS_ENV__.MINIO_BUCKET;
+const UNI_APP_VERSION = window.__APS_ENV__.UNI_APP_VERSION;
+const CUSTOMIZATION_API_HOST = window.__APS_ENV__.CUSTOMIZATION_API_HOST;
+const WEB_BIZ = window.__APS_ENV__.WEB_BIZ || '';
+
+const ANDROID_MINIO_BUCKET = 'mobile';
+const ANDROID_MINIO_OBJECT = `upgrade/versions/${RUNTIME_ENV}/${UNI_APP_VERSION}/alsiAps-release.apk`;
+
+export default {
+  RUNTIME_ENV,
+  API_HOST,
+  OAUTH_HOST,
+  WSS_HOST,
+  CLIENT_ID,
+  CLIENT_SECRET,
+  MINIO_END_POINT,
+  MINIO_BUCKET,
+  CUSTOMIZATION_API_HOST,
+  ANDROID_MINIO_BUCKET,
+  ANDROID_MINIO_OBJECT,
+  NODE_ENV,
+  WEB_BIZ
+};
+

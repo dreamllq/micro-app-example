@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+
+require('ts-node/register');
+const { trans } = require('../lib/index.js');
+const { Command } = require('commander');
+const program = new Command();
+const path = require('path');
+const fs = require('fs');
+
+program
+  .name('aps-trans')
+  .description('trans')
+  .version('1.0.0');
+
+program
+  .option('-o, --outDir <outDir>', 'outDir')
+  .option('-cn, --cnLocales <cnLocales>', 'cnLocales')
+  .option('-en, --enLocales <enLocales>', 'enLocales')
+  .option('-ja, --jaLocales <jaLocales>', 'jaLocales')
+  .option('-f, --force', 'force')
+  .option('-c, --config <config...>', 'config')
+  .parse();
+
+const options = program.opts();
+
+console.log(JSON.stringify(options));
+
+const fromLang = {
+  from: 'zh',
+  locales: undefined
+};
+
+const toLangs = [
+  {
+    name: 'ja',
+    to: 'jp',
+    locales: undefined,
+    key: 'jaLocales'
+  },
+  {
+    name: 'en',
+    to: 'en',
+    locales: undefined,
+    key: 'enLocales'
+  }
+];
+
+fromLang.locales = require(path.join(process.cwd(), options.cnLocales)).default;
+
+if (options.force !== true) {
+  toLangs.forEach(item => {
+    if (options[item.key]) {
+      const localesPath = path.join(process.cwd(), options[item.key]);
+      if (fs.existsSync(localesPath)) {
+        const locales = require(localesPath).default;
+        item.locales = locales;
+      }
+    }
+  });
+}
+
+trans({
+  fromLang,
+  toLangs,
+  outDir: path.join(process.cwd(), options.outDir) 
+});
+
+
+
+

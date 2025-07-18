@@ -1,0 +1,12 @@
+{
+"css": [
+<% for (key in htmlWebpackPlugin.files.css) { %>
+"<%= htmlWebpackPlugin.files.css[key] %>"
+<% } %>
+],
+"js":[
+<% for (key in htmlWebpackPlugin.files.js) { %>
+"<%= htmlWebpackPlugin.files.js[key] %>?_v=<%=__VERSION__%>"
+<% } %>
+]
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="renderer" content="webkit">
+  <style>
+    body.scale {
+      --body-scale: 0.8;
+      --body-scale-size: 125%;
+    }
+
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body.scale {
+      transform: scale(var(--body-scale));
+      transform-origin: top left;
+      width: var(--body-scale-size) !important;
+      height: var(--body-scale-size) !important;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <title></title>
+  <!-- FrameworkJs -->
+  <!-- ProjectCss -->
+</head>
+
+<body>
+  <div id="app"></div>
+  <div id="global-notify"></div>
+  <!-- ProjectJs -->
+  <script>
+    if (!!window.localStorage.getItem('scale')) {
+      document.body.classList.add('scale');
+    }
+  </script>
+</body>
+
+</html>

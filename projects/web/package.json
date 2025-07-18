@@ -1,0 +1,19 @@
+{
+  "name": "scpo-sys-web",
+  "version": "1.7.0-2",
+  "description": "aps 发包用途",
+  "scripts": {
+    "download": "alsi download -dev",
+    "start": "alsi serve -p 8080",
+    "dev": "nodemon",
+    "build": "alsi build",
+    "preversion": "alsi-npm-preversion",
+    "postversion": "git push && git push --tags"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@alsi/web-alsi-cli": "^1.8.16",
+    "nodemon": "^3.0.1"
+  }
+}

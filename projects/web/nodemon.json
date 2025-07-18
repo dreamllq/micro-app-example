@@ -1,0 +1,6 @@
+{
+  "watch": [
+    "./.env.development"
+  ],
+  "exec": "npm run start"
+}
